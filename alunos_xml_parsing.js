@@ -13,8 +13,8 @@ function loadDataAsJSON(STUDENTS) {
           aluno_json[tag.tagName] = tag.textContent;
         }
         data_json.push(aluno_json);
-        buildStudentsObject(STUDENTS);
       }
+      buildStudentsObject(STUDENTS);
     },
     error: function (data) {
       console.log("Error loading XML data");
@@ -31,7 +31,7 @@ function buildStudentsObject(students) {
       students[grr] = {
         NOME_ALUNO: data["NOME_ALUNO"],
       };
-      grade = [];
+      grade = {};
     } else grade = students[grr].grade; // pega grade que ja existe
 
     let code = data["COD_ATIV_CURRIC"];
@@ -70,3 +70,23 @@ function getMaiorAnoSem(a, b) {
   if (a["ANO"] == b["ANO"]) return a["PERIODO"][0] == "2" ? a : b;
   else return a["ANO"] > b["ANO"] ? a : b;
 }
+
+/* 
+FORMATO DE DADOS QUE CONSTROI:
+{
+    "GRR00000000": {
+        "NOME_ALUNO": "ALUNO 0",
+        "grade": {
+          CE003: {  
+            NOME_ATIV_CURRIC: 'Estatística II', 
+            matriculas: Array(1), 
+            ultima_matricula: {…}
+          }
+          CI055: {NOME_ATIV_CURRIC: 'ALGORITMOS E ESTRUTURAS DE DADOS I', matriculas: Array(1), ultima_matricula: {…}}
+          CI056: {NOME_ATIV_CURRIC: 'ALGORITMOS E ESTRUTURAS DE DADOS II', matriculas: Array(1), ultima_matricula: {…}}
+          ...
+        }
+    },
+    ...
+}
+*/

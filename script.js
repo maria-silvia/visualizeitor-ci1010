@@ -4,7 +4,7 @@ loadDataAsJSON(STUDENTS);
 
 $(document).ready(function () {
   fillSelect();
-  $("button").click(loadGRR);
+  $("#selectGRR").change(loadGRR);
 
   function fillSelect() {
     let GRRs = Object.keys(STUDENTS);
@@ -19,6 +19,8 @@ $(document).ready(function () {
     let ra = $("#selectGRR").val();
     SELECTED_STUDENT = STUDENTS[ra];
     console.log(SELECTED_STUDENT);
+    $("#nome_aluno").text(SELECTED_STUDENT["NOME_ALUNO"]);
+    painTable();
   }
 
   function painTable(params) {}

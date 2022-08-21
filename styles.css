@@ -1,9 +1,4 @@
 :root {
-    --red: rgb(244, 124, 124);
-    --yellow: rgb(247, 244, 139);
-    --green: rgb(161, 222, 147);
-    --blue: rgb(112, 161, 215);
-
     --bright: rgb(255, 230, 188);
     --strong: rgb(142, 128, 106);
 
@@ -38,18 +33,9 @@ main h1 {
     padding: 3px;
 }
 
-p {
-    max-width: 75ch;
-}
-
 div {
     background-color: var(--bright);
     padding: 10px ;
     margin-block: 5px;
 }
 
-table {
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-}

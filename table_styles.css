@@ -1,0 +1,32 @@
+:root {
+    --red: rgb(244, 124, 124);
+    --yellow: rgb(247, 244, 139);
+    --green: rgb(161, 222, 147);
+    --blue: rgb(112, 161, 215);
+}
+
+table {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.aprovado {
+    background-color: var(--green);
+}
+
+.reprovado {
+    background-color: var(--red);
+}
+
+.matriculado {
+    background-color: var(--blue);
+}
+
+.equivalencia {
+    background-color: var(--yellow);
+}
+
+.outro {
+    text-decoration: underline;
+}

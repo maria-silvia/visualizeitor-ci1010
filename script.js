@@ -3,22 +3,22 @@ var STUDENTS = {};
 loadDataAsJSON(STUDENTS);
 
 $(document).ready(function () {
-  console.log("students", STUDENTS);
-
+  fillSelect();
   $("button").click(loadGRR);
-  function loadGRR() {
-    let ra = $("input").val();
-    var SELECTED_STUDENT = searchGRR(ra);
-    if (SELECTED_STUDENT) {
-      $("#nome_aluno").text(ra);
-      paintTable();
-    } else {
-      $("#nome_aluno").text("GRR não encontrado");
-    }
+
+  function fillSelect() {
+    let GRRs = Object.keys(STUDENTS);
+    $.each(GRRs, function (key, value) {
+      $("#selectGRR").append(
+        $("<option></option>").attr("value", value).text(value)
+      );
+    });
   }
 
-  function searchGRR(params) {
-    return null;
+  function loadGRR() {
+    let ra = $("#selectGRR").val();
+    SELECTED_STUDENT = STUDENTS[ra];
+    console.log(SELECTED_STUDENT);
   }
 
   function painTable(params) {}

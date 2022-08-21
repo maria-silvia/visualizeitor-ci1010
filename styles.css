@@ -41,6 +41,8 @@ p {
     max-width: 75ch;
 }
 
-.course-table {
+div {
     background-color: var(--bright);
+    padding: 10px ;
+    margin-block: 5px;
 }

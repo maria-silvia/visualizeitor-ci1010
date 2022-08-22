@@ -41,4 +41,5 @@ div {
 
 .course-table {
     padding-left: 30px;
+    overflow-x: auto;
 }

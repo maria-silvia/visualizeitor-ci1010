@@ -22,7 +22,6 @@
       
       <form action="/action_page.php">
         <select name="selectGRR" id="selectGRR">
-          <option disabled selected value> selecionar GRR </option>
         </select>
       </form>
       
@@ -98,12 +97,23 @@
       </div>
     </main>
     
-    <!--Creates the popup body-->
+    <!--POPUP da ULTIMA MATRICULA - BOTAO ESQUERDO-->
     <div class="popup-right-click">
-      <h2>Pop-Up</h2>
-      <p> This is an example pop-up that you can make using jQuery.</p>
-      <!--popup's close button-->
-      <button class="close" id="closePopup">Close</button>
+      <h2 id="code_name"></h2>
+      <h3 id="situation"></h3>
+      <div>
+        <span><strong>Última vez cursada em:</strong></span> 
+        <span id="date"></span>
+      </div>
+      <div>
+        <span><strong>Nota:</strong></span>
+        <span id="grade"></span>
+      </div>
+      <div>
+        <span><strong>Frequência:</strong></span>
+        <span id="freq"></span>
+      </div>
+      <button class="close" id="closePopup">Fechar</button>
     </div>
 
   </body>

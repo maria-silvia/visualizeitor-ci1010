@@ -1,5 +1,6 @@
-var SELECTED_STUDENT = null;
 var STUDENTS = {};
+var SELECTED_STUDENT = null;
+var SELECTED_CLASS = null;
 loadDataAsJSON(STUDENTS);
 
 $(document).ready(function () {
@@ -7,7 +8,7 @@ $(document).ready(function () {
   $("#selectGRR").change(loadGRR);
 
   $("td").mousedown(function (event) {
-    if (event.which == 1) openLastMatricula();
+    if (event.which == 1) openLastMatricula(event);
     else openHistorico();
   });
 
@@ -29,6 +30,9 @@ $(document).ready(function () {
         $("<option></option>").attr("value", value).text(value)
       );
     });
+    // já inicia com o primeiro carregado
+    SELECTED_STUDENT = GRRs[0];
+    loadGRR();
   }
 
   function loadGRR() {
@@ -77,7 +81,16 @@ $(document).ready(function () {
     });
   }
 
-  function openLastMatricula() {
+  function openLastMatricula(event) {
+    SELECTED_CLASS = event.currentTarget.innerText;
+    console.log(SELECTED_STUDENT);
+    let name = SELECTED_STUDENT.grade[SELECTED_CLASS].NOME_ATIV_CURRIC;
+    $("#code_name").text(`${SELECTED_CLASS} - ${name}`);
+    let matr = SELECTED_STUDENT.grade[SELECTED_CLASS].ultima_matricula;
+    $("#date").text(`${matr.ANO} / ${matr.PERIODO}`);
+    $("#grade").text(matr.MEDIA_FINAL);
+    $("#freq").text(matr.FREQUENCIA);
+    $("#situation").text(matr.SITUACAO);
     $(".popup-right-click").addClass("active");
   }
 });

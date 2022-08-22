@@ -48,6 +48,7 @@ $(document).ready(function () {
     $("td").each(function () {
       const code = $(this).text();
       if (courses[code]) {
+        $(this).addClass("td_clicavel");
         switch (courses[code].ultima_matricula.SITUACAO) {
           case "Aprovado":
           case "Dispensa de Disciplinas (com nota)":
@@ -77,20 +78,22 @@ $(document).ready(function () {
       $(this).removeClass("reprovado");
       $(this).removeClass("matriculado");
       $(this).removeClass("equivalencia");
+      $(this).removeClass("td_clicavel");
       $(this).removeClass("outro");
     });
   }
 
   function openLastMatricula(event) {
     SELECTED_CLASS = event.currentTarget.innerText;
-    console.log(SELECTED_STUDENT);
-    let name = SELECTED_STUDENT.grade[SELECTED_CLASS].NOME_ATIV_CURRIC;
-    $("#code_name").text(`${SELECTED_CLASS} - ${name}`);
-    let matr = SELECTED_STUDENT.grade[SELECTED_CLASS].ultima_matricula;
-    $("#date").text(`${matr.ANO} / ${matr.PERIODO}`);
-    $("#grade").text(matr.MEDIA_FINAL);
-    $("#freq").text(matr.FREQUENCIA);
-    $("#situation").text(matr.SITUACAO);
-    $(".popup-right-click").addClass("active");
+    if (SELECTED_STUDENT.grade[SELECTED_CLASS]) {
+      let name = SELECTED_STUDENT.grade[SELECTED_CLASS].NOME_ATIV_CURRIC;
+      $("#code_name").text(`${SELECTED_CLASS} - ${name}`);
+      let matr = SELECTED_STUDENT.grade[SELECTED_CLASS].ultima_matricula;
+      $("#date").text(`${matr.ANO} / ${matr.PERIODO}`);
+      $("#grade").text(matr.MEDIA_FINAL);
+      $("#freq").text(matr.FREQUENCIA);
+      $("#situation").text(matr.SITUACAO);
+      $(".popup-right-click").addClass("active");
+    }
   }
 });

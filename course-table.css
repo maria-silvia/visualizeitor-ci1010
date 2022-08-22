@@ -14,7 +14,7 @@ table th {
     color: var(--bright);
 }
 
-table td:hover {
+.td_clicavel:hover {
     border: 2px solid var(--strong);
 }
 

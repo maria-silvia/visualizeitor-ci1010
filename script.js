@@ -18,8 +18,7 @@ $(document).ready(function () {
   function loadGRR() {
     let ra = $("#selectGRR").val();
     SELECTED_STUDENT = STUDENTS[ra];
-    console.log(SELECTED_STUDENT);
-    $("#nome_aluno").text(SELECTED_STUDENT["NOME_ALUNO"]);
+    $("#nome_aluno").text(`Grade 2011 - ${SELECTED_STUDENT["NOME_ALUNO"]}`);
     cleanTable();
     painTable();
   }

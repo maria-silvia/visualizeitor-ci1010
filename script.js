@@ -3,8 +3,24 @@ var STUDENTS = {};
 loadDataAsJSON(STUDENTS);
 
 $(document).ready(function () {
-  fillSelect();
+  // ============= EVENT REGISTRATION ===============================
   $("#selectGRR").change(loadGRR);
+
+  $("td").mousedown(function (event) {
+    if (event.which == 1) openLastMatricula();
+    else openHistorico();
+  });
+
+  $("#closePopup").click(() => $(".popup-right-click").removeClass("active"));
+
+  $(document).keyup(function (e) {
+    if (e.key === "Escape") {
+      $(".popup-right-click").removeClass("active");
+    }
+  });
+  // ================================================================
+
+  fillSelect();
 
   function fillSelect() {
     let GRRs = Object.keys(STUDENTS);
@@ -28,7 +44,6 @@ $(document).ready(function () {
     $("td").each(function () {
       const code = $(this).text();
       if (courses[code]) {
-        console.log(courses[code].ultima_matricula.SITUACAO);
         switch (courses[code].ultima_matricula.SITUACAO) {
           case "Aprovado":
           case "Dispensa de Disciplinas (com nota)":
@@ -60,5 +75,9 @@ $(document).ready(function () {
       $(this).removeClass("equivalencia");
       $(this).removeClass("outro");
     });
+  }
+
+  function openLastMatricula() {
+    $(".popup-right-click").addClass("active");
   }
 });

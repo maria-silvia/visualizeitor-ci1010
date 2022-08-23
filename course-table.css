@@ -20,28 +20,3 @@ table th {
 .td_clicavel:hover {
     border: 2px solid var(--strong);
 }
-
-.aprovado {
-    background-color: var(--green);
-    font-weight: bold;
-}
-
-.reprovado {
-    background-color: var(--red);
-    font-weight: bold;
-}
-
-.matriculado {
-    background-color: var(--blue);
-    font-weight: bold;
-}
-
-.equivalencia {
-    background-color: var(--yellow);
-    font-weight: bold;
-}
-
-.outro {
-    text-decoration: underline;
-    font-weight: bold;
-}

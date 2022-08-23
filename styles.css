@@ -48,3 +48,28 @@ div {
     padding-left: 30px;
     overflow-x: auto;
 }
+
+.aprovado {
+    background-color: var(--green);
+    font-weight: bold;
+}
+
+.reprovado {
+    background-color: var(--red);
+    font-weight: bold;
+}
+
+.matriculado {
+    background-color: var(--blue);
+    font-weight: bold;
+}
+
+.equivalencia {
+    background-color: var(--yellow);
+    font-weight: bold;
+}
+
+.outro {
+    text-decoration: underline;
+    font-weight: bold;
+}

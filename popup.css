@@ -2,7 +2,7 @@ body {
     position: relative;
 }
 
-.popup-right-click {
+.popup {
     /*Hides pop-up when there is no "active" class*/
     visibility: hidden;
 
@@ -10,14 +10,29 @@ body {
     left: 25%;
     top: 15%;
     width: 50%;
-    height: 50%;
+    height: 55%;
 
     background: var(--bright);
     border: 2px solid var(--strong);
     box-shadow: 0px 10px 13px -7px #000000, 2px 13px 50px -13px #856034;
+    padding-inline: 30px;
+
+    color: black;
 }
 
-.popup-right-click.active {
+.popup.active {
     visibility: visible;
 }
 
+#situation {
+    width: 50%;
+    text-align: center;
+    margin: auto;
+    padding: 2px;
+}
+
+.close {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}

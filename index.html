@@ -98,11 +98,23 @@
     </main>
     
     <!--POPUP da ULTIMA MATRICULA - BOTAO ESQUERDO-->
-    <div class="popup-right-click">
+    <div class="popup" id="summary-popup">
+      <h2 id="code_name"></h2>
+      <div>
+        <p id="situation"><span></span></p>
+        <p><strong>Nota: </strong><span id="grade"></span></p>
+        <p><strong>Frequência: </strong><span id="freq"></span></p>
+        <p><span id="date"></span></p> 
+      </div>
+      <button class="close" id="closePopup">Fechar</button>
+    </div>
+
+    <!--POPUP da ULTIMA MATRICULA - BOTAO ESQUERDO-->
+    <!-- <div class="popup" id="history-popup">
       <h2 id="code_name"></h2>
       <h3 id="situation"></h3>
       <div>
-        <span><strong>Última vez cursada em:</strong></span> 
+        <span><strong>Última vez cursada em:</strong></span>
         <span id="date"></span>
       </div>
       <div>
@@ -114,7 +126,6 @@
         <span id="freq"></span>
       </div>
       <button class="close" id="closePopup">Fechar</button>
-    </div>
-
+    </div> -->
   </body>
 </html>

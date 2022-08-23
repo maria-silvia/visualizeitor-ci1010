@@ -1,6 +1,5 @@
 var STUDENTS = {};
 var SELECTED_STUDENT = null;
-var SELECTED_CLASS = null;
 
 $(document).ready(function () {
   // ============= EVENT REGISTRATION ===============================
@@ -83,11 +82,11 @@ $(document).ready(function () {
   }
 
   function openLastMatricula(event) {
-    SELECTED_CLASS = event.currentTarget.innerText;
-    if (SELECTED_STUDENT.grade[SELECTED_CLASS]) {
-      let name = SELECTED_STUDENT.grade[SELECTED_CLASS].NOME_ATIV_CURRIC;
-      $("#code_name").text(`${SELECTED_CLASS} - ${name}`);
-      let matr = SELECTED_STUDENT.grade[SELECTED_CLASS].ultima_matricula;
+    let code = event.currentTarget.innerText;
+    if (SELECTED_STUDENT.grade[code]) {
+      let name = SELECTED_STUDENT.grade[code].NOME_ATIV_CURRIC;
+      $("#code_name").text(`${code} - ${name}`);
+      let matr = SELECTED_STUDENT.grade[code].ultima_matricula;
       $("#date").text(`${matr.ANO} / ${matr.PERIODO}`);
       $("#grade").text(matr.MEDIA_FINAL);
       $("#freq").text(matr.FREQUENCIA);

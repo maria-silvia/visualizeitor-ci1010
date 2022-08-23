@@ -24,11 +24,18 @@ body {
     visibility: visible;
 }
 
-#situation {
-    width: 50%;
+.popup div {
+    width: 80%;
+}
+.popup .status_tag {
     text-align: center;
-    margin: auto;
-    padding: 2px;
+    padding: 4px;
+}
+
+.popup .status_tag > span,
+.popup .info > span {
+    margin-right: 15px;
+    white-space: nowrap;
 }
 
 .close {

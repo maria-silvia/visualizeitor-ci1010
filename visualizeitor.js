@@ -66,12 +66,14 @@ $(document).ready(function () {
       $("#grade").text(matr.MEDIA_FINAL);
       $("#freq").text(matr.FREQUENCIA);
       $("#situation").text(matr.SITUACAO);
-      cleanSituationClassFromElement("#situation");
-      assignClassBySituation("#situation", matr.SITUACAO);
+      cleanSituationClassFromElement(".status_tag");
+      assignClassBySituation(".status_tag", matr.SITUACAO);
 
       $("#summary-popup").addClass("active");
     }
   }
+
+  function openHistorico(event) {}
 
   // -------------------------------- HELPERS ----------------------------------
   function assignClassBySituation(el, situation) {

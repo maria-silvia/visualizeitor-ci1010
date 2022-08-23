@@ -1,7 +1,6 @@
 var STUDENTS = {};
 var SELECTED_STUDENT = null;
 var SELECTED_CLASS = null;
-loadDataAsJSON(STUDENTS);
 
 $(document).ready(function () {
   // ============= EVENT REGISTRATION ===============================
@@ -21,7 +20,7 @@ $(document).ready(function () {
   });
   // ================================================================
 
-  fillSelect();
+  loadDataAsJSON(STUDENTS).then(() => fillSelect()); // -- INICIALIZA
 
   function fillSelect() {
     let GRRs = Object.keys(STUDENTS);

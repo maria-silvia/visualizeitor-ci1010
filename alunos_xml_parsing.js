@@ -1,7 +1,7 @@
 var data_json = [];
 
 function loadDataAsJSON(STUDENTS) {
-  $.ajax({
+  return $.ajax({
     url: "alunos.xml",
     dataType: "xml",
     success: function (data) {

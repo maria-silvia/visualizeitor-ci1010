@@ -26,10 +26,17 @@ body {
 
 .popup div {
     width: 80%;
+    height: 55%;
+    overflow-y: auto;
 }
 .popup .status_tag {
     text-align: center;
     padding: 4px;
+    margin: 0
+}
+.popup .info {
+    margin-top: 5px;
+    margin-bottom: 20px;
 }
 
 .popup .status_tag > span,

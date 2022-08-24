@@ -75,7 +75,7 @@ $(document).ready(function () {
       }
       let block = getMatriculaBlock(course.ultima_matricula);
       $("#popup-content").append(block);
-      $("#summary-popup").addClass("active popup_small");
+      $("#popup").addClass("active popup_small");
     }
   }
 
@@ -93,7 +93,7 @@ $(document).ready(function () {
         let block = getMatriculaBlock(matr);
         $("#popup-content").append(block);
       });
-      $("#summary-popup").addClass("active popup_big");
+      $("#popup").addClass("active popup_big");
     }
   }
 

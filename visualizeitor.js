@@ -45,6 +45,7 @@ $(document).ready(function () {
     SELECTED_STUDENT = STUDENTS[ra];
     $("#nome_aluno").text(`Grade 2011 - ${SELECTED_STUDENT["NOME_ALUNO"]}`);
     painTable();
+    listOtherClasses();
   }
 
   function painTable() {
@@ -89,6 +90,23 @@ $(document).ready(function () {
   function closePopup() {
     $(".popup").removeClass("active");
     $("#popup-content").empty();
+  }
+
+  function listOtherClasses() {
+    let all_classes_2011 = [];
+    all_classes_2011 = all_classes_2011.concat(
+      ...Object.values(CURRICULUM_BCC_2011)
+    );
+    for (const code in SELECTED_STUDENT.grade) {
+      if (!all_classes_2011.includes(code)) {
+        const nome = SELECTED_STUDENT.grade[code].NOME_ATIV_CURRIC;
+        $("#other-courses").append(`<h5>${code} - ${nome}</h5>`);
+        SELECTED_STUDENT.grade[code].matriculas.forEach((matr) => {
+          let block = getMatriculaBlock(matr);
+          $("#other-courses").append(block);
+        });
+      }
+    }
   }
 
   // -------------------------------- HELPERS ----------------------------------

@@ -55,34 +55,44 @@ $(document).ready(function () {
       const code = $(this).text();
       if (courses[code]) {
         $(this).addClass("td_clicavel");
-        let c = getClassBySituation(courses[code].ultima_matricula.SITUACAO);
-        $(this).addClass(c);
+        if (!is_opt_or_tg(code)) {
+          let c = getClassBySituation(courses[code].ultima_matricula.SITUACAO);
+          $(this).addClass(c);
+        }
       }
     });
   }
 
   function openLastMatricula(code) {
-    if (SELECTED_STUDENT.grade[code]) {
-      let name = SELECTED_STUDENT.grade[code].NOME_ATIV_CURRIC;
-      $("#code_name").text(`${code} - ${name}`);
-
-      let matr = SELECTED_STUDENT.grade[code].ultima_matricula;
-      let block = getMatriculaBlock(matr);
+    let course = SELECTED_STUDENT.grade[code];
+    if (course) {
+      if (is_opt_or_tg(code)) {
+        $("#code_name").text(`Última matrícula em ${course.DESCR_ESTRUTURA}`);
+      } else {
+        $("#code_name").text(
+          `${course.COD_ATIV_CURRIC} - ${course.NOME_ATIV_CURRIC}`
+        );
+      }
+      let block = getMatriculaBlock(course.ultima_matricula);
       $("#popup-content").append(block);
       $("#summary-popup").addClass("active");
     }
   }
 
   function openHistorico(code) {
-    if (SELECTED_STUDENT.grade[code]) {
-      let name = SELECTED_STUDENT.grade[code].NOME_ATIV_CURRIC;
-      $("#code_name").text(`${code} - ${name}`);
-
-      SELECTED_STUDENT.grade[code].matriculas.forEach((matr) => {
+    let course = SELECTED_STUDENT.grade[code];
+    if (course) {
+      if (is_opt_or_tg(code)) {
+        $("#code_name").text(`Matrículas em ${course.DESCR_ESTRUTURA}`);
+      } else {
+        $("#code_name").text(
+          `${course.COD_ATIV_CURRIC} - ${course.NOME_ATIV_CURRIC}`
+        );
+      }
+      course.matriculas.forEach((matr) => {
         let block = getMatriculaBlock(matr);
         $("#popup-content").append(block);
       });
-
       $("#summary-popup").addClass("active");
     }
   }
@@ -99,9 +109,8 @@ $(document).ready(function () {
     );
     for (const code in SELECTED_STUDENT.grade) {
       if (!all_classes_2011.includes(code)) {
-        const nome = SELECTED_STUDENT.grade[code].NOME_ATIV_CURRIC;
-        $("#other-courses").append(`<h5>${code} - ${nome}</h5>`);
-        SELECTED_STUDENT.grade[code].matriculas.forEach((matr) => {
+        let course = SELECTED_STUDENT.grade[code];
+        course.matriculas.forEach((matr) => {
           let block = getMatriculaBlock(matr);
           $("#other-courses").append(block);
         });
@@ -147,6 +156,9 @@ $(document).ready(function () {
         </p>
         <p class="info">
           <span>
+            <span>${matr.NOME_ATIV_CURRIC} (${matr.COD_ATIV_CURRIC})</span>
+          </span>
+          <span>
             <strong>Nota: </strong>
             <span>${matr.MEDIA_FINAL}</span>
           </span>
@@ -155,6 +167,10 @@ $(document).ready(function () {
             <span>${matr.FREQUENCIA}</span>
           </span>
         </p>`;
+  }
+
+  function is_opt_or_tg(code) {
+    return code == "OPT" || code == "TG I" || code == "TG II";
   }
   // ===========================================================================
 });

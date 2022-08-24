@@ -29,24 +29,26 @@ body {
     height: 55%;
     overflow-y: auto;
 }
-.popup .status_tag {
-    text-align: center;
-    padding: 4px;
-    margin: 0
-}
-.popup .info {
-    margin-top: 5px;
-    margin-bottom: 20px;
-}
-
-.popup .status_tag > span,
-.popup .info > span {
-    margin-right: 15px;
-    white-space: nowrap;
-}
 
 .close {
     position: absolute;
     bottom: 20px;
     right: 20px;
 }
+
+/* BLOQUINHO DE MATRICULA STYLES */
+.status_tag {
+    text-align: center;
+    padding: 4px;
+    margin: 0
+}
+.info {
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+.status_tag > span,
+.info > span {
+    margin-right: 15px;
+    white-space: nowrap;
+}
+

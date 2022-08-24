@@ -22,6 +22,11 @@ function loadDataAsJSON(STUDENTS) {
   });
 }
 
+/**
+ * Transforma o XML na estrutura comentada no final deste arquivo
+ * @param {*} students
+ * @returns
+ */
 function buildStudentsObject(students) {
   data_json.forEach((data) => {
     let grr = data["MATR_ALUNO"];
@@ -99,7 +104,9 @@ FORMATO DE DADOS QUE CONSTROI:
         "NOME_ALUNO": "ALUNO 0",
         NOME_ATIV_CURRIC: 'Estatística II', 
         DESCR_ESTRUTURA: 'Obrigatorias'
+
         "grade": {
+          
           CE003: {  
             NOME_ATIV_CURRIC: 'Estatística II', 
             DESCR_ESTRUTURA: 'Obrigatorias'

@@ -27,6 +27,9 @@ $(document).ready(function () {
   });
   // ===========================================================================
 
+  /**
+   * preenche <select> com options de GRRs presentes no xml
+   */
   function fillSelect() {
     let GRRs = Object.keys(STUDENTS);
     $.each(GRRs, function (key, value) {
@@ -34,12 +37,15 @@ $(document).ready(function () {
         $("<option></option>").attr("value", value).text(value)
       );
     });
-
     // já inicia com o primeiro carregado
     SELECTED_STUDENT = GRRs[0];
     loadGRR();
   }
 
+  /**
+   * ao selecionar um GRR no select,
+   * carrega dados para pintar tabela e listar demais materias
+   */
   function loadGRR() {
     let ra = $("#selectGRR").val();
     SELECTED_STUDENT = STUDENTS[ra];
@@ -48,6 +54,10 @@ $(document).ready(function () {
     listOtherClasses();
   }
 
+  /**
+   * Itera pelos table data pintando de acordo com a situacao
+   * ainda nao pinta equivalencias de amarelo...
+   */
   function painTable() {
     const courses = SELECTED_STUDENT.grade;
     cleanSituationClassFromElement("td");
@@ -63,6 +73,10 @@ $(document).ready(function () {
     });
   }
 
+  /**
+   * Abre pop up com a matrícula mais recente
+   * @param {*} code string com codigo da disciplina ou OPT ou TG I/II
+   */
   function openLastMatricula(code) {
     let course = SELECTED_STUDENT.grade[code];
     if (course) {
@@ -79,6 +93,10 @@ $(document).ready(function () {
     }
   }
 
+  /**
+   * Abre pop up com todas as matrículas dentro de 'code'
+   * @param {*} code string com codigo da disciplina ou OPT ou TG I/II
+   */
   function openHistorico(code) {
     let course = SELECTED_STUDENT.grade[code];
     if (course) {
@@ -102,6 +120,11 @@ $(document).ready(function () {
     $("#popup-content").empty();
   }
 
+  /**
+   * Lista as matrículas que o aluno tem mas o código não está na grade
+   * de 2011 de BCC
+   * equivalências devem listar aqui
+   */
   function listOtherClasses() {
     let all_classes_2011 = [];
     all_classes_2011 = all_classes_2011.concat(

@@ -9,6 +9,9 @@ const CURRICULUM_BCC_2011 = {
   8: ["OPT", "OPT", "OPT", "OPT", "TG II"],
 };
 
+/**
+ * Popula a table com as disciplinas da grade de 2011
+ */
 function buildCurriculumTable() {
   const curriculum = CURRICULUM_BCC_2011;
   for (const semester in curriculum) {

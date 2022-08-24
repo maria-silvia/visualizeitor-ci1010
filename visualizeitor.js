@@ -3,6 +3,7 @@ var SELECTED_STUDENT = null;
 
 $(document).ready(function () {
   // ------------------ INICIALIZA -----------------
+  buildCurriculumTable();
   loadDataAsJSON(STUDENTS).then(() => {
     fillSelect();
   });

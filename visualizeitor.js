@@ -126,6 +126,7 @@ $(document).ready(function () {
    * equivalências devem listar aqui
    */
   function listOtherClasses() {
+    $("#other-courses").empty();
     let all_classes_2011 = [];
     all_classes_2011 = all_classes_2011.concat(
       ...Object.values(CURRICULUM_BCC_2011)
@@ -141,6 +142,7 @@ $(document).ready(function () {
     }
   }
 
+  // ===========================================================================
   // -------------------------------- HELPERS ----------------------------------
   function getClassBySituation(situation) {
     switch (situation) {

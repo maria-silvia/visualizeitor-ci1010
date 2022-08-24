@@ -75,7 +75,7 @@ $(document).ready(function () {
       }
       let block = getMatriculaBlock(course.ultima_matricula);
       $("#popup-content").append(block);
-      $("#summary-popup").addClass("active");
+      $("#summary-popup").addClass("active popup_small");
     }
   }
 
@@ -93,12 +93,12 @@ $(document).ready(function () {
         let block = getMatriculaBlock(matr);
         $("#popup-content").append(block);
       });
-      $("#summary-popup").addClass("active");
+      $("#summary-popup").addClass("active popup_big");
     }
   }
 
   function closePopup() {
-    $(".popup").removeClass("active");
+    $(".popup").removeClass("active popup_big popup_small");
     $("#popup-content").empty();
   }
 

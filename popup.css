@@ -7,11 +7,7 @@ body {
     visibility: hidden;
 
     position: absolute;
-    left: 25%;
-    top: 15vh;
-    width: 50%;
-    height: 55vh;
-
+    
     background: var(--bright);
     border: 2px solid var(--strong);
     box-shadow: 0px 10px 13px -7px #000000, 2px 13px 50px -13px #856034;
@@ -20,19 +16,33 @@ body {
     color: black;
 }
 
+.popup_small {
+    width: 50%;
+    left: 25%;
+    height: 40vh;
+    top: 10vh;
+}
+
+.popup_big {
+    width: 80%;
+    left: 10%;
+    height: 80vh;
+    top: 10vh;
+}
+
 .popup.active {
     visibility: visible;
 }
 
 .popup div {
     width: 80%;
-    height: 55%;
+    height: auto;
     overflow-y: auto;
 }
 
 .close {
     position: absolute;
-    bottom: 20px;
+    top: 20px;
     right: 20px;
 }
 
